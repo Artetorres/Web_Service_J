@@ -1,0 +1,70 @@
+@url = http://localhost:8080/fci/api
+
+### --- EMPRESAS ---
+
+# Listar todas
+GET {{url}}/empresas
+
+### Buscar por ID (Exemplo: Empresa Alfa)
+GET {{url}}/empresas/1
+
+### Criar nova empresa
+POST {{url}}/empresas
+Content-Type: application/json
+
+{
+    "nome": "Mackenzie Tech",
+    "cnpj": "99.888.777/0001-11",
+    "email": "contato@mackenzie.br"
+}
+
+### Atualizar empresa
+PUT {{url}}/empresas/1
+Content-Type: application/json
+
+{
+    "nome": "Empresa Alfa Atualizada",
+    "cnpj": "12.345.678/0001-90",
+    "email": "novo-email@alfa.com"
+}
+
+### Deletar empresa
+DELETE {{url}}/empresas/3
+
+
+### --- ESTUDANTES ---
+
+# Listar todos
+GET {{url}}/estudantes
+
+### Criar novo estudante
+POST {{url}}/estudantes
+Content-Type: application/json
+
+{
+    "nome": "Seu Nome Completo",
+    "email": "seu.email@mackenzista.com.br",
+    "nascimento": "2000-01-01",
+    "anoIngresso": 2026
+}
+
+### Deletar estudante
+DELETE {{url}}/estudantes/1
+
+
+### --- VAGAS ---
+
+# Listar todas
+GET {{url}}/vagas
+
+### Criar nova vaga
+POST {{url}}/vagas
+Content-Type: application/json
+
+{
+    "titulo": "Estagiário Backend Java",
+    "descricao": "Vaga para quem manja de Spring Boot e REST.",
+    "publicacao": "2026-04-12",
+    "ativo": true,
+    "idEmpresa": 1
+}
