@@ -1,0 +1,11 @@
+Get http://localhost:8080/fci/api/empresas
+###
+
+POST http://localhost:8080/fci/api/empresas
+Content-Type: application/json
+
+{
+  "cnpj": "12345678901234",
+  "email": "contato@empresaexemplo.com",
+  "nome": "Empresa Exemplo"
+}

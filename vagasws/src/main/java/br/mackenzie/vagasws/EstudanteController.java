@@ -2,6 +2,8 @@ package br.mackenzie.vagasws;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -21,9 +23,13 @@ public class EstudanteController {
         estudantes.add(new Estudante(9, "Camila Azevedo", "camila.azevedo@email.com", "2001-11-08", 2019));
         estudantes.add(new Estudante(10, "Felipe Cardoso", "felipe.cardoso@email.com", "2000-08-27", 2018));
     }
+    @Autowired
+    private EstudanteRepository estudanteRepo;
 
     @GetMapping("/fci/api/estudantes")
-    public List<Estudante> getEstudantes() { return estudantes; }
+    public Iterable<Estudante> getEstudantes() { 
+        Iterable<Estudante> estudantes = estudanteRepo.findAll();
+        return estudantes; }
 
     @PostMapping("/fci/api/estudantes")
     public Estudante create(@RequestBody Estudante e) {

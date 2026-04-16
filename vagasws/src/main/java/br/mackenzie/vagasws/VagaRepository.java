@@ -1,0 +1,8 @@
+package br.mackenzie.vagasws;
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface VagaRepository extends CrudRepository<Vaga, Long> {
+        
+    
+}
