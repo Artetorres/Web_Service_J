@@ -2,6 +2,8 @@ package br.mackenzie.vagasws;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,15 +16,18 @@ public class VagaController {
         vagas.add(new Vaga(3, "Engenheiro de Software", "Desenvolvimento de soluções...", "2025-10-03", false, 3));
     }
 
+    @Autowired
+    private VagaRepository vagaRepo;
+
     @GetMapping("/fci/api/vagas")
-    public List<Vaga> getVagas() { return vagas; }
+    public Iterable<Vaga> getVagas() { 
+        Iterable<Vaga> vagas = vagaRepo.findAll();
+        return vagas; 
+    }
 
     @PostMapping("/fci/api/vagas")
     public Vaga create(@RequestBody Vaga v) {
-        long novoId = vagas.isEmpty() ? 1 : vagas.get(vagas.size()-1).getId() + 1;
-        v.setId(novoId);
-        vagas.add(v);
-        return v;
+        return vagaRepo.save(v);
     }
 
     @PutMapping("/fci/api/vagas/{id}")

@@ -33,10 +33,7 @@ public class EstudanteController {
 
     @PostMapping("/fci/api/estudantes")
     public Estudante create(@RequestBody Estudante e) {
-        long novoId = estudantes.get(estudantes.size()-1).getId() + 1;
-        e.setId(novoId);
-        estudantes.add(e);
-        return e;
+        return estudanteRepo.save(e);
     }
 
     @PutMapping("/fci/api/estudantes/{id}")

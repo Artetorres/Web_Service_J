@@ -36,10 +36,7 @@ public class EmpresaController {
 
     @PostMapping("/fci/api/empresas")
     public Empresa createEmpresa(@RequestBody Empresa nova) {
-        long novoId = empresas.isEmpty() ? 1 : empresas.get(empresas.size() - 1).getId() + 1;
-        nova.setId(novoId);
-        empresas.add(nova);
-        return nova;
+        return empresaRepo.save(nova);
     }
 
     @PutMapping("/fci/api/empresas/{id}")
