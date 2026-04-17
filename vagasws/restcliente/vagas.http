@@ -1,0 +1,39 @@
+### 
+GET http://localhost:8080/fci/api/vagas
+
+
+###
+POST http://localhost:8080/fci/api/vagas
+Content-Type: application/json
+
+{
+    "titulo": "Estágio em Engenharia de Software",
+    "descricao": "Atuação no desenvolvimento backend com Spring Boot e Java.",
+    "salario": 2500.00
+}
+
+
+###
+POST http://localhost:8080/fci/api/vagas
+Content-Type: application/json
+
+{
+    "titulo": "Desenvolvedor Backend Júnior",
+    "descricao": "Manutenção de APIs REST e modelagem de banco de dados H2.",
+    "salario": 4000.00
+}
+
+
+###
+PUT http://localhost:8080/fci/api/vagas/1
+Content-Type: application/json
+
+{
+    "titulo": "Estágio em Engenharia de Software (Vaga Atualizada)",
+    "descricao": "Atuação no backend com Spring Boot, Java e Clean Code.",
+    "salario": 2800.00
+}
+
+
+### 
+DELETE http://localhost:8080/fci/api/vagas/2
